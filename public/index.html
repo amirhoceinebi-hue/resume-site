@@ -57,6 +57,19 @@ footer{padding:26px 0;text-align:center;color:var(--mu);font-size:14px;margin-to
 #menu{display:inline-block}header .bar nav{display:none;position:absolute;top:60px;inset-inline:0;flex-direction:column;background:var(--s);border:1px solid var(--bd);border-radius:12px;padding:6px}header .bar nav.open{display:flex}nav a{padding:12px}}
 @media(prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}.rv{opacity:1;transform:none}}
 @media print{@page{size:A4;margin:14mm}:root{--bg:#fff;--s:#fff;--s2:#f1f3f6;--tx:#000;--hd:#000;--mu:#333;--bd:#bbb;--ac:#1d4fa8}body{font-size:11pt}header,#top,#contact form,.cta,.noprint{display:none!important}.hero{border:0;padding:0;margin:0;gap:18px}.pic{width:110px;height:136px}.c{break-inside:avoid}section{padding:12px 0 0;break-inside:avoid}.rv{opacity:1;transform:none}}
+.pic{position:relative;cursor:pointer}
+.idc{position:absolute;inset-inline:0;bottom:0;padding:30px 12px 12px;color:#fff;text-align:center;font-weight:600;background:linear-gradient(transparent,rgba(8,20,45,.95) 38%);transform:translateY(101%);transition:transform .3s;display:flex;flex-direction:column;font-size:13.5px;line-height:1.8}
+.pic:hover .idc,.pic:focus-visible .idc,.pic.show .idc{transform:none}.idc b{font-size:15px;color:#fff}
+.ib{position:absolute;top:10px;inset-inline-end:10px;width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.92);color:#0e2747;font:700 15px Georgia,serif;display:grid;place-items:center}
+.gv{font:inherit;font-size:13px;margin-inline-start:8px;padding:0 12px;border:1px solid var(--ac);color:var(--ac);background:transparent;border-radius:99px;cursor:pointer;white-space:nowrap}.gv:hover{background:var(--ac);color:#fff}
+.gv.big{margin:0 0 16px;padding:4px 16px;align-self:flex-start}
+.adv{display:flex;align-items:center;gap:12px;text-decoration:none;border:1px solid var(--bd);background:var(--s2);border-radius:12px;padding:8px 14px;margin:0 0 14px;align-self:flex-start;transition:.2s}.adv:hover{border-color:var(--ac)}
+.adv img{width:44px;height:44px;border-radius:50%;object-fit:cover;object-position:50% 20%}.adv small{display:block;color:var(--mu);font-size:12px;line-height:1.4}.adv b{color:var(--hd);font-size:14px;line-height:1.5}
+#lb{position:fixed;inset:0;z-index:50;background:rgba(5,10,20,.9);display:none;flex-direction:column;align-items:center;justify-content:center;padding:56px 16px 24px;direction:ltr}#lb.on{display:flex}#lb [hidden]{display:none}
+#lb figure{margin:0;text-align:center}#lb img{max-width:min(92vw,1100px);max-height:72vh;min-width:min(86vw,320px);object-fit:contain;background:#fff;border-radius:8px}#lb figcaption{color:#fff;margin-top:12px;font-size:15px;unicode-bidi:plaintext}
+.lbb{position:absolute;width:42px;height:42px;padding:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.3);font-size:22px;line-height:1}.lbb:hover{background:var(--ac);color:#fff}
+#lbx{top:14px;right:14px}#lbp{left:12px;top:50%}#lbn{right:12px;top:50%}
+@media print{.gv,#lb,.idc,.ib{display:none!important}.pic{cursor:auto}}
 </style>
 </head>
 <body>
@@ -69,7 +82,7 @@ footer{padding:26px 0;text-align:center;color:var(--mu);font-size:14px;margin-to
 </div></header>
 <main class="w">
 <div id="home" class="hero">
- <div class="pic"><img src="assets/profile.jpg" width="640" height="853" alt="" id="pimg" fetchpriority="high"></div>
+ <div class="pic" tabindex="0" role="button"><img src="assets/profile.jpg" width="640" height="853" alt="" id="pimg" fetchpriority="high"><span class="ib" aria-hidden="true">i</span><div class="idc"><span data-i="born"></span><span id="age"></span></div></div>
  <div><h1 data-i="name"></h1><p class="role" data-i="role"></p><p class="lead" data-i="intro"></p>
  <div class="qc ltr"><a href="tel:09301122046">09301122046</a><a href="https://mail.google.com/mail/?view=cm&amp;fs=1&amp;to=lamirhoceinl@gmail.com" target="_blank" rel="noopener">lamirhoceinl@gmail.com</a><a href="https://t.me/lamirhoceinl" target="_blank" rel="noopener">Telegram @lamirhoceinl</a></div>
  <div class="cta"><a class="btn pri" href="#contact" data-i="b_contact"></a></div></div>
@@ -84,7 +97,7 @@ footer{padding:26px 0;text-align:center;color:var(--mu);font-size:14px;margin-to
  <div><h2 data-i="n_int"></h2><div class="c"><ul id="in"></ul></div></div>
  <div><h2 data-i="n_lang"></h2><div class="c"><p data-i="langs" style="margin:0"></p></div></div></div></section>
 <section id="contact" class="rv"><h2 data-i="n_contact"></h2><div class="g" style="grid-template-columns:repeat(auto-fit,minmax(280px,1fr))">
- <div class="c"><h3 data-i="f_title"></h3><p class="m" data-i="f_desc"></p>
+ <div class="c"><h3 data-i="f_title"></h3>
  <form id="f" name="contact" novalidate>
   <div><label for="name" data-i="f_name"></label><input id="name" name="name" autocomplete="name" required maxlength="80"><div class="err" id="e1"></div></div>
   <div><label for="contactf" data-i="f_contact"></label><input id="contactf" name="contact" required maxlength="80" dir="auto"><div class="err" id="e2"></div></div>
@@ -101,6 +114,7 @@ footer{padding:26px 0;text-align:center;color:var(--mu);font-size:14px;margin-to
  </div></div></section>
 </main>
 <button id="top" aria-label="top">↑</button>
+<div id="lb" role="dialog" aria-modal="true" aria-label="gallery"><button id="lbx" class="lbb" aria-label="close">✕</button><button id="lbp" class="lbb" aria-label="previous">‹</button><figure><img id="lbi" alt=""><figcaption id="lbc"></figcaption></figure><button id="lbn" class="lbb" aria-label="next">›</button></div>
 <script>
 const $=s=>document.querySelector(s);
 const T={
@@ -117,11 +131,11 @@ fa:{title:"امیرحسین ابراهیمی | مهندس برق و دانشجو
  n_courses:"دوره‌های آموزشی",co:["برنامه‌نویسی STM32","Altium Designer","مقدماتی C#","درایوهای الکتریکی"],
  n_int:"حوزه‌های مورد علاقه",in:["درایوهای الکتریکی و کنترل موتور","الکترونیک قدرت در انرژی‌های تجدیدپذیر","اینترنت اشیا (IoT) و سیستم‌های متصل","مانیتورینگ صنعتی از راه دور"],
  n_lang:"زبان‌ها",langs:"انگلیسی — متوسط (Intermediate)",n_contact:"تماس با من",
- f_title:"با من در ارتباط باشید",f_desc:"اگر درباره مهارت‌ها، پروژه‌ها یا فرصت‌های همکاری سؤالی دارید، پیام خود را برای من ارسال کنید.",
+ f_title:"با من در ارتباط باشید",
  f_name:"نام و نام خانوادگی",f_contact:"شماره تماس یا شناسه ارتباطی",f_msg:"پیام شما",f_send:"ارسال پیام",
  ok:"پیام شما با موفقیت ارسال شد. از اینکه با من در ارتباط هستید، سپاسگزارم.",bad:"ارسال پیام انجام نشد. لطفاً دوباره تلاش کنید یا از روش‌های ارتباطی دیگر استفاده کنید.",
  sending:"در حال ارسال…",req:"این فیلد الزامی است.",badc:"شماره تلفن، ایمیل یا شناسه معتبر وارد کنید.",short:"متن کوتاه است.",
- c_alt:"راه‌های ارتباطی دیگر",c_bot:"پیام به ربات تلگرام",copy:"کپی شناسه",copied:"کپی شد ✓"},
+ c_alt:"راه‌های ارتباطی دیگر",c_bot:"پیام به ربات تلگرام",born:"متولد ۲۶ اسفند ۱۳۸۱",vi:"مشاهده تصویر",vis:"مشاهده تصاویر",adv:"استاد راهنما",advn:"دکتر حسین کریمیان علیداش",picl:"مشخصات",copy:"کپی شناسه",copied:"کپی شد ✓"},
 en:{title:"Amirhossein Ebrahimi | Electrical Engineer & Energy Systems Technology Student",
  name:"Amirhossein Ebrahimi",role:"Electrical Engineer | M.Sc. Student in Energy Systems Technology",
  intro:"I'm Amirhossein Ebrahimi, an electrical engineer and M.Sc. student in Energy Systems Technology at Sharif University of Technology. I'm interested in microcontroller programming, hardware design, industrial monitoring and electric drives, and I'm working to deepen my knowledge and skills in engineering technologies and energy systems.",
@@ -135,22 +149,24 @@ en:{title:"Amirhossein Ebrahimi | Electrical Engineer & Energy Systems Technolog
  n_courses:"Courses",co:["STM32 Programming","Altium Designer","C# Fundamentals","Electric Drives"],
  n_int:"Areas of Interest",in:["Electric drives and motor control","Power electronics in renewable energy","Internet of Things (IoT) and connected systems","Remote industrial monitoring"],
  n_lang:"Languages",langs:"English — Intermediate",n_contact:"Contact",
- f_title:"Get in Touch",f_desc:"If you have questions about my skills, projects, or collaboration opportunities, send me a message.",
+ f_title:"Get in Touch",
  f_name:"Full name",f_contact:"Phone number or messenger ID",f_msg:"Your message",f_send:"Send message",
  ok:"Your message was sent successfully. Thank you for reaching out.",bad:"The message could not be sent. Please try again or use another contact method.",
  sending:"Sending…",req:"This field is required.",badc:"Enter a valid phone, email or username.",short:"Message is too short.",
- c_alt:"Other ways to reach me",c_bot:"Message via Telegram bot",copy:"copy ID",copied:"Copied ✓"}};
+ c_alt:"Other ways to reach me",c_bot:"Message via Telegram bot",born:"Born 26 Esfand 1381 (17 March 2003)",vi:"View image",vis:"View images",adv:"Supervisor",advn:"Dr. Hossein Karimian Alidash",picl:"Details",copy:"copy ID",copied:"Copied ✓"}};
 const IDS=["home","about","education","skills","experience","projects","contact"];
 let L=localStorage.getItem("lang")||"fa";
+const AGE=(()=>{const n=new Date();let a=n.getFullYear()-2003;if(n<new Date(n.getFullYear(),2,17))a--;return a})();
 function render(){const t=T[L],d=document.documentElement;d.lang=L;d.dir=L=="fa"?"rtl":"ltr";document.title=t.title;
  document.querySelector('meta[name=description]').content=L=="fa"?"وب‌سایت رزومه امیرحسین ابراهیمی، مهندس برق و دانشجوی کارشناسی ارشد تکنولوژی سیستم‌های انرژی در دانشگاه صنعتی شریف.":"Résumé website of Amirhossein Ebrahimi, electrical engineer and M.Sc. student in Energy Systems Technology at Sharif University of Technology.";
  document.querySelectorAll("[data-i]").forEach(e=>e.textContent=t[e.dataset.i]);
  $("#pimg").alt=t.alt;$("#nav").innerHTML=t.nav.map((n,i)=>`<a href="#${IDS[i]}">${n}</a>`).join("");
  $("#edu").innerHTML=t.edu.map(e=>`<div class="c"><h3>${e[0]}</h3><div class="m">${e[1]}</div>${e[2]?`<span class="tag" style="direction:inherit">${e[2]}</span>`:""}</div>`).join("");
  $("#sk").innerHTML=t.sk.map(g=>`<div class="c"><h3>${g[0]}</h3>${g[1].map(s=>`<span class="tag">${s}</span>`).join("")}</div>`).join("");
- const x=t.exp;$("#exp").innerHTML=`<h3>${x[0]}</h3><div class="m">${x[1]}</div><ul>${x[2].map(i=>`<li>${i}</li>`).join("")}</ul>`;
- $("#pr").innerHTML=t.pr.map(p=>`<article class="c pj"><span class="pd">${p[4]}</span><h3>${p[0]}</h3><ul>${p[1].map(i=>`<li>${i}</li>`).join("")}</ul><div class="pt">${p[2].map(s=>`<span class="tag">${s}</span>`).join("")}</div></article>`).join("");
+ const x=t.exp;$("#exp").innerHTML=`<h3>${x[0]}</h3><div class="m">${x[1]}</div><ul>${x[2].map((i,k)=>`<li>${i} <button class="gv" data-g="${k?"sch":"jig"}">${k?t.vis:t.vi}</button></li>`).join("")}</ul>`;
+ $("#pr").innerHTML=t.pr.map((p,n)=>`<article class="c pj"><span class="pd">${p[4]}</span><h3>${p[0]}</h3>${n?"":`<a class="adv" href="https://faculty.kashanu.ac.ir/hkarimiyan/fa" target="_blank" rel="noopener"><img src="assets/img/advisor.jpg" width="44" height="44" alt=""><span><small>${t.adv}</small><b>${t.advn}</b></span></a>`}<ul>${p[1].map(i=>`<li>${i}</li>`).join("")}</ul>${n?"":`<button class="gv big" data-g="stm">${t.vis}</button>`}<div class="pt">${p[2].map(s=>`<span class="tag">${s}</span>`).join("")}</div></article>`).join("");
  $("#co").innerHTML=t.co.map(i=>`<li>${i}</li>`).join("");$("#in").innerHTML=t.in.map(i=>`<li>${i}</li>`).join("");
+ $("#age").textContent=L=="fa"?"سن: "+AGE.toLocaleString("fa-IR")+" سال":"Age: "+AGE+" years";$(".pic").setAttribute("aria-label",t.picl);
  $("#lang").textContent=L=="fa"?"فارسی | EN":"EN | فارسی";}
 function th(v){document.documentElement.dataset.theme=v;localStorage.setItem("theme3",v)}
 th(localStorage.getItem("theme3")||"light");
@@ -171,6 +187,16 @@ $("#f").onsubmit=async ev=>{ev.preventDefault();const t=T[L],f=ev.target,v=Objec
  catch{st.className="bad";st.textContent=t.bad}$("#send").disabled=false};
 const io2=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)document.querySelectorAll("#nav a").forEach(a=>a.classList.toggle("on",a.hash=="#"+e.target.id))}),{rootMargin:"-40% 0px -55% 0px"});
 IDS.forEach(i=>io2.observe(document.getElementById(i)));
+const G={jig:[["pcb","طراحی PCB","PCB design"]],sch:[["sch1","شماتیک برد (صفحه اصلی)","Board schematic (main sheet)"],["sch2","شماتیک برد (نمای کامل زیرمدارها)","Board schematic (full sub-circuit view)"]],stm:[["gui","محیط گرافیکی نرم‌افزار در LabVIEW","LabVIEW monitoring interface"],["xls","ثبت داده‌ها در Excel","Data logging in Excel"],["config","پنجره تنظیمات سیستم","System configuration window"]]};
+let cur=[],ci=0,lastF=null;const lb=$("#lb");
+function showG(){const g=cur[ci],c=g[L=="fa"?1:2];$("#lbi").src="assets/img/"+g[0]+".webp";$("#lbi").alt=c;$("#lbc").textContent=c+(cur.length>1?"  ("+(ci+1)+"/"+cur.length+")":"");$("#lbp").hidden=$("#lbn").hidden=cur.length<2}
+function openG(k){cur=G[k];ci=0;lastF=document.activeElement;showG();lb.classList.add("on");$("#lbx").focus()}
+function closeG(){lb.classList.remove("on");lastF&&lastF.focus()}
+const stepG=d=>{ci=(ci+d+cur.length)%cur.length;showG()};
+document.addEventListener("click",e=>{const b=e.target.closest(".gv");if(b)openG(b.dataset.g)});
+$("#lbx").onclick=closeG;$("#lbp").onclick=()=>stepG(-1);$("#lbn").onclick=()=>stepG(1);lb.onclick=e=>{if(e.target===lb)closeG()};
+document.addEventListener("keydown",e=>{if(!lb.classList.contains("on"))return;if(e.key=="Escape")closeG();if(e.key=="ArrowLeft")stepG(-1);if(e.key=="ArrowRight")stepG(1)});
+const pic=$(".pic");pic.onclick=()=>pic.classList.toggle("show");pic.onkeydown=e=>{if(e.key=="Enter"||e.key==" "){e.preventDefault();pic.classList.toggle("show")}};
 render();
 </script>
 </body>
