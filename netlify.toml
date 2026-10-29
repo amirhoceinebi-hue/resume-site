@@ -1,0 +1,22 @@
+[build]
+  publish = "public"
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+[functions]
+  node_bundler = "esbuild"
+
+[[redirects]]
+  from = "/api/contact"
+  to = "/.netlify/functions/contact"
+  status = 200
+[[redirects]]
+  from = "/api/bot"
+  to = "/.netlify/functions/bot"
+  status = 200
+[[redirects]]
+  from = "/api/setup"
+  to = "/.netlify/functions/telegram-setup"
+  status = 200
