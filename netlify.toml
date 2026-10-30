@@ -1,6 +1,7 @@
 [build]
   publish = "public"
   functions = "netlify/functions"
+  command = 'sed -i "s#__SITE_URL__#$URL#g" public/index.html'
 
 [build.environment]
   NODE_VERSION = "20"
